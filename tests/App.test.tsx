@@ -1,16 +1,19 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import App from "../src/App";
+import { posts } from "../src/data";
 
 describe("App", () => {
   it("should render the App component", async () => {
     render(<App />);
-    const countButton = screen.getByRole("button", { name: "0" });
-    expect(countButton).toBeInTheDocument();
-    const user = userEvent.setup();
-    await user.click(countButton);
-    await user.click(countButton);
-    expect(countButton).toHaveTextContent("2");
+    const heading = screen.getByRole("heading", { name: /Hacker News/i });
+    expect(heading).toBeInTheDocument();
+  });
+  it("should render all posts", () => {
+    render(<App />);
+    posts.forEach((post) => {
+      const postTitle = screen.getByRole("heading", { name: post.title });
+      expect(postTitle).toBeInTheDocument();
+    });
   });
 });

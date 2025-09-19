@@ -1,0 +1,43 @@
+:root {
+  --title-color: green;
+}
+
+body {
+  background-color: #eee;
+}
+
+.title {
+  color: var(--title-color);
+  margin-top: 0px;
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+
+.post a {
+  text-decoration: none;
+}
+
+.post .post-title {
+  margin-top: 0px;
+  color: black;
+}
+
+.post a:hover {
+  text-decoration: underline;
+}
+
+.post .post-description {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 0px;
+}
